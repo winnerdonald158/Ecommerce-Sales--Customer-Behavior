@@ -1,0 +1,19 @@
+Total revenue
+SELECT SUM(total_amount) AS total_revenue
+FROM ecommerce;
+
+Monthly Revenue
+SELECT 
+    DATE_FORMAT(order_date, '%Y-%m') AS month,
+    SUM(total_amount) AS monthly_revenue
+FROM ecommerce
+GROUP BY month
+ORDER BY month ASC;
+
+Total revenue by product category
+SELECT 
+    product_category,
+    SUM(total_amount) AS total_revenue
+FROM ecommerce
+GROUP BY product_category;
+
